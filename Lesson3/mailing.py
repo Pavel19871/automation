@@ -1,10 +1,10 @@
 
-from address import address
+from address import Address
 
 
-class mailing:
-    to_address = address
-    from_address = address
+class Mailing:
+    to_address = Address
+    from_address = Address
     cost = "1500"
     track = "758"
 
