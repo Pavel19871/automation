@@ -1,10 +1,10 @@
 
-from smartphone import Smartphone
+from smartphone import smartphone
 
-phone1 = Smartphone
-phone2 = Smartphone
-phone3 = Smartphone
-phone4 = Smartphone
+phone1 = smartphone
+phone2 = smartphone
+phone3 = smartphone
+phone4 = smartphone
 phone1 = ("Samsung", "A6+", "+79507243219")
 phone2 = ("Infinix", "Note 30", "+79822361241")
 phone3 = ("IPhone", "15 Pro Max", "+79194005147")

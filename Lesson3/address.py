@@ -1,5 +1,5 @@
 
-class Address:
+class address:
     индекс = "000000"
     город = "name"
     улица = "name"

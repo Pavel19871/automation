@@ -1,5 +1,5 @@
 
-class Smartphone:
+class smartphone:
     brand = "Unknow"
     model = "Unknow"
     number = "+79999999999"

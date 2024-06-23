@@ -1,9 +1,9 @@
 
-from User import User
+from user import user
 
-my_user = User("Павел", "Ломакин")
+my_user = user("Павел", "Ломакин")
 
-my_user.First_name()
-my_user.Last_name()
-my_user.All_name()
+my_user.first_name()
+my_user.last_name()
+my_user.all_name()
 
