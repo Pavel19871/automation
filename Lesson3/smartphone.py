@@ -1,3 +1,4 @@
+
 class Smartphone:
     brand = "Unknow"
     model = "Unknow"
@@ -7,3 +8,5 @@ class Smartphone:
         self.brand = brand
         self.model = model
         self.number = number
+        
+        

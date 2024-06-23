@@ -1,3 +1,4 @@
+
 class User:
 
     def __init__(self, first_name, last_name):
@@ -12,3 +13,5 @@ class User:
 
     def All_name(self):
         print(self.user_first_name, self.user_last_name)
+        
+        

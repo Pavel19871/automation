@@ -1,3 +1,4 @@
+
 from address import Address
 
 
@@ -18,3 +19,5 @@ class Mailing:
 
     def from_address(self):
         print(self.from_address)
+        
+        

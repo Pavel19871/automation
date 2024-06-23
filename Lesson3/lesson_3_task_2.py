@@ -1,3 +1,4 @@
+
 from smartphone import Smartphone
 
 phone1 = Smartphone
@@ -13,3 +14,5 @@ catalog = [phone1, phone2, phone3, phone4]
 
 for phones in catalog:
     print(phones)
+    
+    
