@@ -1,0 +1,77 @@
+1. Функция "contains" не предусматривает вариант когда искомый символ является 
+пустой строкой:
+
+Test case: string = "hello", symbol = "" 
+Expected Result: False
+Actual Result: True
+
+Error message:
+def test_contains(string, symbol, result):
+        string_util = StringUtils()
+        print(f"Input string: {string}")
+        print(f"Inputed symbol: {symbol}")
+        print(f"Expected result: {result}")
+        res = string_util.contains(string, symbol)
+        print(f"Actual result: {res}")
+>       assert res == result
+E       assert True == False
+
+Solution:
+
+Функция contains в идеале должна возвращать False, когда параметр 
+symbol является пустой строкой, поскольку пустая строка не должна быть 
+найдена внутри любой непустой строки. Однако, похоже, что функция возвращает
+True в этом случае, что является неверным поведением.
+
+Чтобы исправить эту проблему, необходимо обновить функцию contains таким 
+образом, чтобы она корректно обрабатывала случай, когда параметр symbol 
+является пустой строкой. Один из способов сделать это - явно проверить, 
+является ли параметр symbol пустой строкой, и немедленно вернуть False в 
+этом случае.
+
+if symbol == "":
+            return False  # Return False if the symbol is an empty string
+        
+        res = False
+
+        try:
+            res = string.index(symbol) > -1
+        except ValueError:
+            pass
+
+        return res
+
+2. Функция "delete_symbol" не предусматривает вариант когда удаляется пробел 
+между словами:
+
+Test case 1: string = "Sky Pro", symbol = "" 
+Expected Result: "SkyPro"
+Actual Result: "Sky Pro"
+
+Error message:
+
+def test_delete_symbol(string, symbol, result):
+        string_util = StringUtils()
+        res = string_util.delete_symbol(string, symbol)
+>       assert res == result
+E       AssertionError: assert 'Sky Pro' == 'SkyPro'
+E         
+E         - SkyPro
+E         + Sky Pro
+E         ?    +
+
+Test case 2: string = "park ", symbol = "" 
+Expected Result: "park"
+Actual Result: "park "
+
+Error Message:
+
+def test_delete_symbol(string, symbol, result):
+        string_util = StringUtils()
+        res = string_util.delete_symbol(string, symbol)
+>       assert res == result
+E       AssertionError: assert 'park ' == 'park'
+E         
+E         - park
+E         + park 
+E         ?     +
