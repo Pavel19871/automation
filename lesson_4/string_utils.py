@@ -20,7 +20,7 @@ class StringUtils:
             string = string.removeprefix(whitespace)
         return string
     
-    def to_list(self, string: str, delimeter = ",") -> list[str]:
+    def to_list(self, string: str, delimeter=",") -> list[str]:
         """
         Принимает на вход текст с разделителем и возвращает список строк. \n
         Параметры: \n 
