@@ -5,7 +5,6 @@ from string_utils import StringUtils
 
 string_util = StringUtils()
 
-
 # Test Case 1: Тестирование функциональности "capitalize"
 @pytest.mark.parametrize('string, result', [
     # Позитивные проверки:
@@ -58,7 +57,6 @@ def test_trim(string, result):
     print(f"Actual result: {res}")
     assert res == result
     
-
 # Test Case 3: Тестирование функциональности "to_list"
 @pytest.mark.parametrize('string, divider, result', [
     # Позитивные проверки:
@@ -188,7 +186,6 @@ def test_end_with(string, symbol, result):
     res=string_util.end_with(string, symbol)
     assert res==result
     
-    
 # Test Case 8: Тестирование функциональности "is_empty"
 @pytest.mark.parametrize('string, result', [
     # Позитивные проверки:
@@ -207,7 +204,6 @@ def test_is_empty(string, result):
     res = string_util.is_empty(string)
     assert res == result
     
-
 # Test Case 9: Тестирование функциональности "list_to_string"
 @pytest.mark.parametrize('lst, joiner, result', [
     # Позитивные проверки:
