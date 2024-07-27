@@ -1,4 +1,3 @@
-
 from selenium import webdriver
 import pytest
 from pages.main_data import MainData
@@ -28,9 +27,4 @@ def test_green_alerts(driver, element, expect_color):
 def test_red_alert(driver, element):
     result_page = ResultPage(driver)
     color = result_page.check_element_color(element)
-    assert color != "rgb(15, 81, 50)", "This one is red"
-    
-    
-    
-      
-    
+    assert color != "rgb(15, 81, 50)", "This one is red"  

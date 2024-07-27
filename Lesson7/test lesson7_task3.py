@@ -1,4 +1,3 @@
-
 from selenium import webdriver
 from pages.login import LoginPage
 from pages.shopping import Shopping

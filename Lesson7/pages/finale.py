@@ -8,6 +8,3 @@ class FinalPage:
     def cheking_price(self):
         total = self._driver.find_element(By.CSS_SELECTOR, "div.summary_total_label").text
         return total
-    
-    
-    

@@ -1,4 +1,3 @@
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -24,6 +23,4 @@ class MainData:
         self._driver.find_element(By.CSS_SELECTOR, "input[name='company']").send_keys("SkyPro")
 
     def submit_button(self):
-        self._driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
-        
-        
+        self._driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()     

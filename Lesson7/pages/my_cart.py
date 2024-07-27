@@ -1,4 +1,3 @@
-
 from selenium.webdriver.common.by import By
 
 
@@ -7,7 +6,4 @@ class MyCart:
         self._driver = driver
 
     def checkout(self):
-        self._driver.find_element(By.CSS_SELECTOR, "button#checkout").click()
-        
-        
-        
+        self._driver.find_element(By.CSS_SELECTOR, "button#checkout").click()   

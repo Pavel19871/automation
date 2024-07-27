@@ -12,6 +12,4 @@ class CheckOut:
         self._driver.find_element(By.CSS_SELECTOR, "input#postal-code").send_keys(zip)
 
     def button_continue(self):
-        self._driver.find_element(By.CSS_SELECTOR, "input#continue").click()
-        
-        
+        self._driver.find_element(By.CSS_SELECTOR, "input#continue").click()    

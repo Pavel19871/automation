@@ -1,4 +1,3 @@
-
 from selenium.webdriver.common.by import By
 
 
@@ -12,8 +11,4 @@ class LoginPage:
     def sign_up(self):
         self._driver.find_element(By.CSS_SELECTOR, "input#user-name").send_keys("standard_user")
         self._driver.find_element(By.CSS_SELECTOR, "input#password").send_keys("secret_sauce")
-        self._driver.find_element(By.CSS_SELECTOR, "input#login-button").click()
-        
-        
-        
-        
+        self._driver.find_element(By.CSS_SELECTOR, "input#login-button").click()   
