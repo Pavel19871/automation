@@ -1,9 +1,9 @@
 import requests
-
+import pytest
 
 class Company:
 
-    def __init__(self, url):
+    def __init__(self, url):  # Исправлено init на __init__
         self.url = url
 
     def get_token(self, user='bloom', password='fire-fairy'):
@@ -12,15 +12,19 @@ class Company:
             'password': password
         }
         resp = requests.post(f"{self.url}/auth/login", json=creds)
-        return resp.json()["userToken"]
+        if resp.status_code == 200:  # Проверка на успешный ответ
+            return resp.json()["userToken"]
+        else:
+            raise Exception("Failed to get token: " + resp.text)
 
     def create_company(self, name, description=''):
         company = {
             "name": name,
             "description": description
         }
-        my_headers = {}
-        my_headers["x-client-token"] = self.get_token()
+        my_headers = {
+            "x-client-token": self.get_token()  # Упрощено создание заголовков
+        }
         resp = requests.post(f"{self.url}/company", json=company, headers=my_headers)
         return resp.json()
 
@@ -37,19 +41,20 @@ class Company:
 
     def add_new_employee(self, new_id, name, last_name):
         employee = {
-            "id": 1,
+            "id": 1,  # Возможно, стоит передавать id как параметр
             "firstName": name,
             "lastName": last_name,
             "middleName": "-",
             "companyId": new_id,
-            "email": "Pahen1987@bk.ru",
+            "email": "test@test.ru",
             "url": "string",
             "phone": "89999999999",
-            "isActive": 'true'
+            "isActive": True  # Исправлено на булевое значение
         }
 
-        my_headers = {}
-        my_headers["x-client-token"] = self.get_token()
+        my_headers = {
+            "x-client-token": self.get_token()  # Упрощено создание заголовков
+        }
         resp = requests.post(f"{self.url}/employee", headers=my_headers, json=employee)
         return resp.json()
 
@@ -60,7 +65,8 @@ class Company:
             "isActive": True
         }
 
-        my_headers = {}
-        my_headers["x-client-token"] = self.get_token()
+        my_headers = {
+            "x-client-token": self.get_token()  # Упрощено создание заголовков
+        }
         resp = requests.patch(f"{self.url}/employee/{id_employee}", headers=my_headers, json=user_info)
         return resp.json()
