@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine, text
 
+
 class dataBase:
     query = {
         'create_company': text('insert into company (name, description) values (:name, :desccription)' ),
