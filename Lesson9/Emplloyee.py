@@ -1,8 +1,7 @@
 import requests
 
 
-class Company:
-
+class Employer:
     def __init__(self, url):
         self.url = url
 
@@ -19,14 +18,15 @@ class Company:
             "name": name,
             "description": description
         }
-        my_headers = {}
-        my_headers["x-client-token"] = self.get_token()
+        my_headers = {
+            "x-client-token": self.get_token()
+        }
         resp = requests.post(f"{self.url}/company", json=company, headers=my_headers)
         return resp.json()
 
-    def get_list_employee(self, id):
+    def get_list_employee(self, company_id):
         my_params = {
-            "company": id
+            "company": company_id
         }
         resp = requests.get(f"{self.url}/employee", params=my_params)
         return resp.json()
@@ -35,32 +35,34 @@ class Company:
         resp = requests.get(f"{self.url}/employee/{id_employee}")
         return resp.json()
 
-    def add_new_employee(self, new_id, name, last_name):
+    def add_new_employee(self, new_id, name, last_name, email="Pahen1987@bk.ru", phone="89999999999", is_active=True):
         employee = {
-            "id": 1,
+            "id": new_id,  # Передаем ID как параметр
             "firstName": name,
             "lastName": last_name,
             "middleName": "-",
             "companyId": new_id,
-            "email": "Pahen1987@bk.ru",
+            "email": email,
             "url": "string",
-            "phone": "89999999999",
-            "isActive": 'true'
+            "phone": phone,
+            "isActive": is_active  # Булевое значение
         }
 
-        my_headers = {}
-        my_headers["x-client-token"] = self.get_token()
+        my_headers = {
+            "x-client-token": self.get_token()
+        }
         resp = requests.post(f"{self.url}/employee", headers=my_headers, json=employee)
         return resp.json()
 
-    def update_employee_info(self, id_employee, last_name, email):
+    def update_employee_info(self, id_employee, last_name, email, is_active=True):
         user_info = {
             "lastName": last_name,
             "email": email,
-            "isActive": True
+            "isActive": is_active  # Булевое значение
         }
 
-        my_headers = {}
-        my_headers["x-client-token"] = self.get_token()
+        my_headers = {
+            "x-client-token": self.get_token()
+        }
         resp = requests.patch(f"{self.url}/employee/{id_employee}", headers=my_headers, json=user_info)
         return resp.json()
