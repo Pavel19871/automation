@@ -1,7 +1,7 @@
 import requests
 
+class Company:
 
-class Employer:
     def __init__(self, url):
         self.url = url
 
@@ -11,7 +11,10 @@ class Employer:
             'password': password
         }
         resp = requests.post(f"{self.url}/auth/login", json=creds)
-        return resp.json()["userToken"]
+        if resp.status_code == 200:  
+            return resp.json()["userToken"]
+        else:
+            raise Exception("Failed to get token: " + resp.text)
 
     def create_company(self, name, description=''):
         company = {
@@ -24,9 +27,9 @@ class Employer:
         resp = requests.post(f"{self.url}/company", json=company, headers=my_headers)
         return resp.json()
 
-    def get_list_employee(self, company_id):
+    def get_list_employee(self, id):
         my_params = {
-            "company": company_id
+            "company": id
         }
         resp = requests.get(f"{self.url}/employee", params=my_params)
         return resp.json()
@@ -35,17 +38,17 @@ class Employer:
         resp = requests.get(f"{self.url}/employee/{id_employee}")
         return resp.json()
 
-    def add_new_employee(self, new_id, name, last_name, email="Pahen1987@bk.ru", phone="89999999999", is_active=True):
+    def add_new_employee(self, new_id, name, last_name):
         employee = {
-            "id": new_id,  # Передаем ID как параметр
+            "id": 1,
             "firstName": name,
             "lastName": last_name,
             "middleName": "-",
             "companyId": new_id,
-            "email": email,
+            "email": "pavel.lomakin@test.ru",
             "url": "string",
-            "phone": phone,
-            "isActive": is_active  # Булевое значение
+            "phone": "89155360293",
+            "isActive": True
         }
 
         my_headers = {
@@ -54,11 +57,11 @@ class Employer:
         resp = requests.post(f"{self.url}/employee", headers=my_headers, json=employee)
         return resp.json()
 
-    def update_employee_info(self, id_employee, last_name, email, is_active=True):
+    def update_employee_info(self, id_employee, last_name, email):
         user_info = {
             "lastName": last_name,
             "email": email,
-            "isActive": is_active  # Булевое значение
+            "isActive": True
         }
 
         my_headers = {

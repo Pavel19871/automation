@@ -18,12 +18,12 @@ def test_add_new_employee():
     descr = "test"
     company = api.create_company(name, descr)
     new_id = company["id"]
-    new_employee = api.add_new_employee(new_id, "Pavel2234", "B")
+    new_employee = api.add_new_employee(new_id, "Pavel99", "B")
     assert new_employee["id"] > 0
 
     resp = api.get_list_employee(new_id)
     assert resp[0]["companyId"] == new_id
-    assert resp[0]["firstName"] == "Pavel2234"
+    assert resp[0]["firstName"] == "Pavel99"
     assert resp[0]["isActive"] == True
     assert resp[0]["lastName"] == "B"
 
@@ -33,11 +33,11 @@ def test_get_employee_by_id():
     descr = "test"
     company = api.create_company(name, descr)
     new_id = company["id"]
-    new_employee = api.add_new_employee(new_id, "Pavel2234", "Be")
+    new_employee = api.add_new_employee(new_id, "Pavel99", "Ba")
     id_employee = new_employee["id"]
     get_info = api.get_employee_by_id(id_employee)
-    assert get_info["firstName"] == "Pavel2234"
-    assert get_info["lastName"] == "Be"
+    assert get_info["firstName"] == "Pavel99"
+    assert get_info["lastName"] == "Ba"
 
 
 def test_change_employee_info():
@@ -45,10 +45,10 @@ def test_change_employee_info():
     descr = "test"
     company = api.create_company(name, descr)
     new_id = company["id"]
-    new_employee = api.add_new_employee(new_id, "Pavel2234", "Ber")
+    new_employee = api.add_new_employee(new_id, "Pavel99", "Bab")
     id_employee = new_employee["id"]
 
-    update = api.update_employee_info(id_employee, "Ber2", "test2@mail.ru")
+    update = api.update_employee_info(id_employee, "Lomak", "Pavel.Lomakin@gmail.com")
     assert update["id"] == id_employee
-    assert update["email"] == "test2@mail.ru"
+    assert update["email"] == "Pavel.Lomakin@gmail.com"
     assert update["isActive"] == True

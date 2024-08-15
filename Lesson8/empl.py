@@ -42,9 +42,9 @@ class Company:
             "lastName": last_name,
             "middleName": "-",
             "companyId": new_id,
-            "email": "Pahen1987@bk.ru",
-            "url": "string",
-            "phone": "89999999999",
+            "email": "yana.babarikova@gmail.com",
+            "url": "yana.ru",
+            "phone": "89155360293",
             "isActive": 'true'
         }
 
