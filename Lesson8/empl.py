@@ -42,8 +42,8 @@ class Company:
             "lastName": last_name,
             "middleName": "-",
             "companyId": new_id,
-            "email": "yana.babarikova@gmail.com",
-            "url": "yana.ru",
+            "email": "pavel.lomakin@gmail.com",
+            "url": "pavel.ru",
             "phone": "89155360293",
             "isActive": 'true'
         }
