@@ -42,9 +42,9 @@ class Company:
             "lastName": last_name,
             "middleName": "-",
             "companyId": new_id,
-            "email": "pavel.lomakin@gmail.com",
-            "url": "pavel.ru",
-            "phone": "89155360293",
+            "email": "Pahen1987@bk.ru",
+            "url": "string",
+            "phone": "89999999999",
             "isActive": 'true'
         }
 

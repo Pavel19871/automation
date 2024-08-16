@@ -3,5 +3,8 @@
         "Lesson8"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "python.analysis.extraPaths": [
+        "./Lesson10/Database"
+    ]
 }
