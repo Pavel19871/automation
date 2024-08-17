@@ -1,4 +1,7 @@
 {
+    "python.analysis.extraPaths": [
+        "./Lesson/9"
+    ],
     "python.testing.pytestArgs": [
         "Lesson8"
     ],
